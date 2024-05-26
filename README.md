@@ -24,17 +24,6 @@ The console will perform the following tasks:
 * do operations on objects
 * destroy an object
 
-## Classes :cl:
-
-HolbertonBnB utilizes the following classes:
-
-|     | BaseModel | FileStorage | User | State | City | Amenity | Place | Review |
-| --- | --------- | ----------- | -----| ----- | -----| ------- | ----- | ------ |
-| **PUBLIC INSTANCE ATTRIBUTES** | `id`<br>`created_at`<br>`updated_at` | | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` |
-| **PUBLIC INSTANCE METHODS** | `save`<br>`to_dict` | `all`<br>`new`<br>`save`<br>`reload` | "" | "" | "" | "" | "" | "" |
-| **PUBLIC CLASS ATTRIBUTES** | | | `email`<br>`password`<br>`first_name`<br>`last_name`| `name` | `state_id`<br>`name` | `name` | `city_id`<br>`user_id`<br>`name`<br>`description`<br>`number_rooms`<br>`number_bathrooms`<br>`max_guest`<br>`price_by_night`<br>`latitude`<br>`longitude`<br>`amenity_ids` | `place_id`<br>`user_id`<br>`text` | 
-| **PRIVATE CLASS ATTRIBUTES** | | `file_path`<br>`objects` | | | | | | |
-
 ### Storage
 
 All the classes are handled by the `Storage` engine in the `FileStorage` Class.
@@ -104,19 +93,28 @@ EOF  help  quit
 $
 ```
 
-## Testing :straight_ruler:
+## 0x04 Testing
 
-Unittests for the HolbertonBnB project are defined in the [tests](./tests) 
-folder. To run the entire test suite simultaneously, execute the following command:
+All the test are defined in the `tests` folder.
 
+### Documentation
+
+* Modules:
+
+```python
+python3 -c 'print(__import__("my_module").__doc__)'
 ```
-$ python3 unittest -m discover tests
+
+* Classes:
+
+```python
+python3 -c 'print(__import__("my_module").MyClass.__doc__)'
 ```
 
-Alternatively, you can specify a single test file to run at a time:
+* Functions (inside and outside a class):
 
-```
-$ python3 unittest -m tests/test_console.py
+```python
+python3 -c 'print(__import__("my_module").my_function.__doc__)'
 ```
 
 and
