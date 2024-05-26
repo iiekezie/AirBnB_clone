@@ -1,6 +1,6 @@
 # 0x00. AirBnB clone - The console
 
-## 0x00. Table of contents
+## 0x00.Table of contents
 
 * [0x01 Introduction](#0x01-Introduction)
 * [0x02 Environment](#0x02-Environment)
@@ -20,9 +20,20 @@ To see the fundamental background of the project visit the [Wiki](https://github
 The console will perform the following tasks:
 
 * create a new object
-* retrieve an object from a file
+* retrive an object from a file
 * do operations on objects
 * destroy an object
+
+## Classes :cl:
+
+HolbertonBnB utilizes the following classes:
+
+|     | BaseModel | FileStorage | User | State | City | Amenity | Place | Review |
+| --- | --------- | ----------- | -----| ----- | -----| ------- | ----- | ------ |
+| **PUBLIC INSTANCE ATTRIBUTES** | `id`<br>`created_at`<br>`updated_at` | | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` |
+| **PUBLIC INSTANCE METHODS** | `save`<br>`to_dict` | `all`<br>`new`<br>`save`<br>`reload` | "" | "" | "" | "" | "" | "" |
+| **PUBLIC CLASS ATTRIBUTES** | | | `email`<br>`password`<br>`first_name`<br>`last_name`| `name` | `state_id`<br>`name` | `name` | `city_id`<br>`user_id`<br>`name`<br>`description`<br>`number_rooms`<br>`number_bathrooms`<br>`max_guest`<br>`price_by_night`<br>`latitude`<br>`longitude`<br>`amenity_ids` | `place_id`<br>`user_id`<br>`text` | 
+| **PRIVATE CLASS ATTRIBUTES** | | `file_path`<br>`objects` | | | | | | |
 
 ### Storage
 
@@ -37,7 +48,7 @@ All the classes are handled by the `Storage` engine in the `FileStorage` Class.
   * [pycodestyle (version 2.7.*)](https://pypi.org/project/pycodestyle/)
   * [PEP8](https://pep8.org/)
 
-All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were VIM 8.1.2269, VSCode 1.6.1, and Atom 1.58.0 . Control version using Git 2.25.1.
+All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were VIM 8.1.2269, VSCode 1.6.1 and Atom 1.58.0 . Control version using Git 2.25.1.
 
 ## 0x03 Installation
 
@@ -45,7 +56,7 @@ All the development and testing was runned over an operating system Ubuntu 20.04
 git clone https://github.com/iiekezie/AirBnB_clone.git
 ```
 
-Change to the `AirBnb` directory and run the command:
+change to the `AirBnb` directory and run the command:
 
 ```bash
  ./console.py
@@ -69,7 +80,7 @@ EOF  help  quit
 $
 ```
 
-In Non-interactive mode
+in Non-interactive mode
 
 ```bash
 $ echo "help" | ./console.py
@@ -93,28 +104,19 @@ EOF  help  quit
 $
 ```
 
-## 0x04 Testing
+## Testing :straight_ruler:
 
-All the tests are defined in the `tests` folder.
+Unittests for the HolbertonBnB project are defined in the [tests](./tests) 
+folder. To run the entire test suite simultaneously, execute the following command:
 
-### Documentation
-
-* Modules:
-
-```python
-python3 -c 'print(__import__("my_module").__doc__)'
+```
+$ python3 unittest -m discover tests
 ```
 
-* Classes:
+Alternatively, you can specify a single test file to run at a time:
 
-```python
-python3 -c 'print(__import__("my_module").MyClass.__doc__)'
 ```
-
-* Functions (inside and outside a class):
-
-```python
-python3 -c 'print(__import__("my_module").my_function.__doc__)'
+$ python3 unittest -m tests/test_console.py
 ```
 
 and
@@ -127,24 +129,25 @@ python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
 
 * unittest module
 * File extension ``` .py ```
-* Files and folders start with ```test_```
-* Organization: for ```models/base.py```, unit tests in: ```tests/test_models/test_base.py```
+* Files and folders star with ```test_```
+* Organization:for ```models/base.py```, unit tests in: ```tests/test_models/test_base.py```
 * Execution command: ```python3 -m unittest discover tests```
 * or: ```python3 -m unittest tests/test_models/test_base.py```
 
-### Run test in interactive mode
+### run test in interactive mode
 
 ```bash
 echo "python3 -m unittest discover tests" | bash
 ```
 
-### Run test in non-interactive mode
+### run test in non-interactive mode
 
-To run the tests in non-interactive mode and discover all the test, you can use the command:
+To run the tests in non-interactive mode, and discover all the test, you can use the command:
 
 ```bash
 python3 -m unittest discover tests
 ```
+
 
 ## 0x05 Usage
 
@@ -188,9 +191,7 @@ create <class>
 ```
 
 ```bash
-(hbnb)
-
- create BaseModel
+(hbnb) create BaseModel
 6cfb47c4-a434-4da7-ac03-2122624c3762
 (hbnb)
 ```
@@ -223,7 +224,7 @@ show <class> <id>
 
 * all
 
-> *Prints all string representations of all instances of a given class.*
+> *Prints all string representation of all instances of a given class.*
 > *If no class is passed, all classes are printed.*
 
 ```bash
@@ -252,23 +253,22 @@ e952b772-80a5-41e9-b728-6bc4dc5c21b4
 
 > *Updates an instance based on the class name, id, and kwargs passed.*
 > *Update the file.json*
-
-## 0x06 Authors
-
+```
+## Authors
 <details>
     <summary>Ifeanyi Ekezie</summary>
     <ul>
-    <li><a href="https://www.github.com/iiekezie">Github</a></li>
+    <li><a href="https://www.github.com/lordwill">Github</a></li>
     </ul>
 </details>
 
 ## How to add Author file
-
-```bash
+`Bash script for generating the list of authors in git repo`
+```
 #!/bin/sh
 
 git shortlog -se \
   | perl -spe 's/^\s+\d+\s+//' \
   | sed -e '/^CommitSyncScript.*$/d' \
   > AUTHORS
-``` 
+  ```
